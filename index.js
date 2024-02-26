@@ -71,9 +71,8 @@ pswrdConf.addEventListener("input", e => confirmPswrd(e, pswrdConf, pswrd));
 
 form.addEventListener("submit", e => {
     e.preventDefault();
-    console.log(form.checkValidity());
     const error = document.querySelector("#submitBtn + span");
-    if (!form.checkValidity()) {
+    if (!form.checkValidity() || !pswrdConf.nextElementSibling.classList.contains("hidden")) {
         error.innerHTML = "Please, check for all errors and then submit";
         error.classList.remove("hidden");
     } else {
