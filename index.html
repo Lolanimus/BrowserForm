@@ -8,35 +8,36 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form novalidate>
+    <form id="form" novalidate>
         <label>Validating Form</label>
         <fieldset>
             <label for="mail">Enter your email: </label>
-            <input type="email" name="mail" id="mail" aria-required="true">
+            <input type="email" name="mail" id="mail" required>
 
             <span class="hidden"></span>
 
             <label for="country">Enter your country: </label>
-            <input type="text" name="country" id="country" minlength="2" maxlength="13" aria-required="true">
+            <input type="text" name="country" id="country" minlength="2" maxlength="13" required>
 
             <span class="hidden"></span>
 
             <label for="zip">Enter your ZIP code: </label>
-            <input type="text" name="zip" id="zip" minlength="6" maxlength="6" aria-required="true">
+            <input type="text" name="zip" id="zip" minlength="6" maxlength="6" required>
 
             <span class="hidden"></span>
 
             <label for="pswrd">Enter your password</label>
-            <input type="password" name="pswrd" id="pswrd" minlength="8" aria-required="true">
+            <input type="password" name="pswrd" id="pswrd" minlength="8" required>
 
             <span class="hidden"></span>
 
             <label for="pswrdConf">Confirm your password</label>
-            <input type="password" name="pswrdConf" id="pswrdConf" aria-required="true">
+            <input type="password" name="pswrdConf" id="pswrdConf" required>
        
             <span class="hidden"></span>
         </fieldset>
-        <button id="submitBtn">Submit</button>
     </form>
+    <button id="submitBtn" type="submit" form="form" value="Submit">Submit</button>
+    <span class="hidden"></span>
 </body>
 </html>

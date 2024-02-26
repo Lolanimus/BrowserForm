@@ -65,3 +65,15 @@ pswrdConf.addEventListener("input", e => {
         error.classList.add("hidden");
     }
 })
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    console.log(form.checkValidity());
+    const error = document.querySelector("#submitBtn + span");
+    if (!form.checkValidity()) {
+        error.innerHTML = "Please, check for all errors and then submit";
+        error.classList.remove("hidden");
+    } else {
+        error.classList.add("hidden");
+    }
+})
