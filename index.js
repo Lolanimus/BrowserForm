@@ -40,6 +40,17 @@ zip.addEventListener("input", e => {
     }
 })
 
+function confirmPswrd(e, pswrdConfElement, pswrdElement) {
+    const error = document.querySelector("#pswrdConf + span");
+    if (pswrdConfElement.value != pswrdElement.value) {
+        error.innerHTML = "Passwords are not equal";
+        error.classList.remove("hidden");
+        e.preventDefault();   
+    } else {
+        error.classList.add("hidden");
+    }
+}
+
 pswrd.addEventListener("input", e => {
     const error = document.querySelector("#pswrd + span");
     if (pswrd.validity.tooShort) {
@@ -51,20 +62,12 @@ pswrd.addEventListener("input", e => {
         error.classList.remove("hidden");
         e.preventDefault();
     } else {
+        confirmPswrd(e, pswrdConf, pswrd);
         error.classList.add("hidden");
     }
 })
 
-pswrdConf.addEventListener("input", e => {
-    const error = document.querySelector("#pswrdConf + span");
-    if (pswrdConf.value != pswrd.value) {
-        error.innerHTML = "Passwords are not equal";
-        error.classList.remove("hidden");
-        e.preventDefault();   
-    } else {
-        error.classList.add("hidden");
-    }
-})
+pswrdConf.addEventListener("input", e => confirmPswrd(e, pswrdConf, pswrd));
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -75,5 +78,6 @@ form.addEventListener("submit", e => {
         error.classList.remove("hidden");
     } else {
         error.classList.add("hidden");
+        form.submit();
     }
 })
