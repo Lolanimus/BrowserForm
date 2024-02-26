@@ -16,3 +16,7 @@ input:invalid {
 span {
     background-color: rgba(255, 101, 101, 0.7);
 }
+
+.hidden {
+    display: none;
+}
